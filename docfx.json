@@ -1,0 +1,50 @@
+{
+  "metadata": [
+    {
+      "src": [
+        {
+          "files": ["**/*.md"],
+          "src": "docs",
+          "dest": "api"
+        }
+      ],
+      "dest": "obj/api",
+      "filter": "filterConfig.yml"
+    }
+  ],
+  "build": {
+    "content": [
+      {
+        "files": ["**/*.md", "**/*.yml"],
+        "src": "docs",
+        "dest": "docs",
+        "exclude": ["obj/**", "_site/**"]
+      }
+    ],
+    "resource": [
+      {
+        "files": ["images/**", "css/**", "js/**"]
+      }
+    ],
+    "output": "_site",
+    "globalMetadata": {
+      "_appTitle": "Self-Referential Documentation Framework",
+      "_appFooter": "<span>Built with ❤️ using DocFX and PMCR-O principles</span>",
+      "_enableSearch": true,
+      "_enableNewTab": true,
+      "_disableContribution": false,
+      "_gitContribute": {
+        "repo": "https://github.com/your-repo/thought-transfer",
+        "branch": "main",
+        "apiSpecFolder": "docs"
+      }
+    },
+    "template": ["default", "templates/custom"],
+    "postProcessors": ["ExtractSearchIndex"],
+    "markdownEngineName": "markdig",
+    "noLangKeyword": false,
+    "keepFileLink": false,
+    "cleanupCacheHistory": false,
+    "disableGitFeatures": false
+  }
+}

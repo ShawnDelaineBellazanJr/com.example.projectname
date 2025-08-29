@@ -1,0 +1,51 @@
+{
+  "name": "self-referential-docs",
+  "version": "1.0.0",
+  "description": "Self-referential documentation framework with PMCR-O loop principles",
+  "main": "index.js",
+  "scripts": {
+    "build": "docfx build",
+    "serve": "docfx serve _site",
+    "validate-structure": "node scripts/validate-structure.js",
+    "validate-triggers": "node scripts/validate-triggers.js",
+    "quality-check": "node scripts/quality-check.js",
+    "evolution-check": "node scripts/evolution-check.js",
+    "self-assess": "node scripts/self-assess.js",
+    "evolution-triggers": "node scripts/evolution-triggers.js",
+    "orchestrate": "node scripts/orchestrate.js",
+    "generate-report": "node scripts/generate-report.js",
+    "full-assessment": "npm run orchestrate",
+    "test": "npm run validate-structure && npm run self-assess",
+    "dev": "npm run build && npm run serve",
+    "maintenance": "npm run full-assessment && npm run build"
+  },
+  "keywords": [
+    "documentation",
+    "self-referential",
+    "docfx",
+    "pmcr-o",
+    "evolution",
+    "meta-documentation"
+  ],
+  "author": "Self-Referential Documentation System",
+  "license": "MIT",
+  "devDependencies": {
+    "markdownlint": "^0.27.0",
+    "markdownlint-cli": "^0.32.2",
+    "remark": "^14.0.2",
+    "remark-cli": "^11.0.0",
+    "remark-lint": "^9.1.1",
+    "remark-preset-lint-recommended": "^6.1.2"
+  },
+  "engines": {
+    "node": ">=14.0.0"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/your-repo/thought-transfer.git"
+  },
+  "bugs": {
+    "url": "https://github.com/your-repo/thought-transfer/issues"
+  },
+  "homepage": "https://your-repo.github.io/thought-transfer/"
+}

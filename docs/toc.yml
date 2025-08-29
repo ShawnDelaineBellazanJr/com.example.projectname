@@ -1,0 +1,82 @@
+- name: Home
+  href: index.md
+  items:
+  - name: Quick Start
+    href: guides/usage.md
+  - name: Philosophy
+    href: philosophy/overview.md
+
+- name: Core Framework
+  items:
+  - name: PMCR-O Loop
+    href: philosophy/pmcro-loop.md
+  - name: Strange Loops
+    href: philosophy/strange-loops.md
+  - name: Self-Reference
+    href: philosophy/self-reference.md
+  - name: Consciousness Evolution
+    href: philosophy/consciousness.md
+
+- name: Implementation
+  items:
+  - name: Getting Started
+    href: guides/getting-started.md
+  - name: Advanced Usage
+    href: guides/advanced-usage.md
+  - name: Best Practices
+    href: guides/best-practices.md
+  - name: Troubleshooting
+    href: guides/troubleshooting.md
+
+- name: API Reference
+  items:
+  - name: Core API
+    href: api/reference.md
+  - name: Evolution Engine
+    href: api/evolution-engine.md
+  - name: Self-Assessment API
+    href: api/self-assessment.md
+  - name: Integration Patterns
+    href: api/integration.md
+
+- name: Evolution System
+  items:
+  - name: Evolution Mechanisms
+    href: evolution/mechanisms.md
+  - name: Trigger System
+    href: evolution/triggers.md
+  - name: Quality Assurance
+    href: evolution/quality-assurance.md
+  - name: Performance Monitoring
+    href: evolution/monitoring.md
+
+- name: Meta-Documentation
+  items:
+  - name: Framework Overview
+    href: meta/framework.md
+  - name: Documentation Philosophy
+    href: meta/philosophy.md
+  - name: Self-Improvement Patterns
+    href: meta/patterns.md
+  - name: Evolution Tracking
+    href: meta/tracking.md
+
+- name: Community & Support
+  items:
+  - name: Contributing
+    href: contributing.md
+  - name: Changelog
+    href: CHANGELOG.md
+  - name: Roadmap
+    href: ROADMAP.md
+  - name: FAQ
+    href: faq.md
+
+- name: Reports
+  items:
+  - name: MCP Ops Report
+    href: reports/mcp-ops-report.md
+  - name: System Health
+    href: reports/system-health.md
+  - name: Orchestration Report
+    href: reports/orchestration-report.md

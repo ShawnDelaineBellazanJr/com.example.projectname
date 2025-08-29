@@ -1,0 +1,109 @@
+## .NET build artifacts
+bin/
+obj/
+**/bin/
+**/obj/
+
+## User-specific
+*.user
+*.rsuser
+*.suo
+*.userosscache
+*.sln.docstates
+
+## IDEs
+.idea/
+.vscode/
+
+## OS files
+Thumbs.db
+.DS_Store
+
+## Logs
+logs/
+*.log
+
+## Node
+node_modules/
+
+## Generated static site
+_site/
+
+## Secrets (keep out of VCS)
+*.secret
+*.secrets.json
+.env
+.env.*
+
+## Local databases
+*.db
+
+## Publish profiles
+*.publishsettings
+# .NET
+bin/
+obj/
+*.user
+*.suo
+*.cache
+*.log
+*.tmp
+*.temp
+*.swp
+*.swo
+*~
+
+# Visual Studio
+.vs/
+.vscode/settings.json
+*.suo
+*.user
+*.userosscache
+*.sln.docstates
+
+# Environment Variables
+.env
+.env.local
+.env.production
+.env.staging
+
+# Database
+data/
+*.db
+*.sqlite
+*.sqlite3
+
+# Documentation Build
+_site/
+api/
+obj/
+
+# Node.js
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+.npm
+.yarn-integrity
+
+# OS
+.DS_Store
+Thumbs.db
+
+# IDE
+.idea/
+*.swp
+*.swo
+
+# Temporary files
+*.tmp
+*.bak
+*.orig
+
+# Logs
+logs/
+*.log
+
+# Build artifacts
+dist/
+build/
