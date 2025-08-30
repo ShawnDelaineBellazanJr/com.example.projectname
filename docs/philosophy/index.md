@@ -47,3 +47,15 @@ Target ≥85% on the automated quality checks.
 > Comment (Reflect): Readers should leave with a mental map and clear next clicks.
 
 > Comment (Optimize): Add mini “why it matters” badges next to each link in the next revision.
+
+---
+
+## PMCR-O Loop Execution
+- Planner: Curate core links and summaries.
+- Maker: Keep sections brief and actionable.
+- Checker: Test links and alignment with guides.
+- Reflector: Adjust based on analytics and feedback.
+- Orchestrator: Coordinate updates across philosophy pages.
+
+## Meta-Commentary
+- Meta-Note: The index embeds its loop to sustain coherence with the rest of the docs.

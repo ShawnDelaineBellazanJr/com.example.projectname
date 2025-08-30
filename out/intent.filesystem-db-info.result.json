@@ -1,0 +1,22 @@
+{
+  "Server": {
+    "Name": "Filesystem",
+    "Command": "npx",
+    "Arguments": [
+      "-y",
+      "@modelcontextprotocol/server-filesystem",
+      "${workspaceFolder}"
+    ]
+  },
+  "Calls": [
+    {
+      "Tool": "get_file_info",
+      "Params": {
+        "path": "mydatabase.db"
+      },
+      "Text": "size: 32768\ncreated: Fri Aug 29 2025 12:42:16 GMT-0500 (Central Daylight Time)\nmodified: Fri Aug 29 2025 19:38:42 GMT-0500 (Central Daylight Time)\naccessed: Fri Aug 29 2025 19:40:27 GMT-0500 (Central Daylight Time)\nisDirectory: false\nisFile: true\npermissions: 666",
+      "TimestampUtc": "2025-08-30T01:05:41.9278118Z"
+    }
+  ],
+  "TimestampUtc": "2025-08-30T01:05:41.9285341Z"
+}

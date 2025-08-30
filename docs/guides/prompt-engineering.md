@@ -51,6 +51,18 @@ This guide standardizes prompt design for ThoughtTransfer. Goals: determinism, b
 - If average score < τ across runs: tighten rubric or reduce scope.
 - If outputs exceed budgets: shorten prompts; enforce bullet limits.
 - If drift detected: add context lock and provenance note.
+
+---
+
+## PMCR-O Loop Execution
+- Planner: Select topology, budgets, and output contracts.
+- Maker: Author prompts with deterministic placeholders and constraints.
+- Checker: Validate outputs against rubric and budget adherence.
+- Reflector: Capture weaknesses and reduce scope where needed.
+- Orchestrator: Standardize templates across intents and agents.
+
+## Meta-Commentary
+- Meta-Note: This guide is both a style manual and a compliance checklist; it contains loops and triggers so automation can evolve it.
 ---
 title: Prompt Engineering for Bounded, Auditable Systems
 description: Patterns for deterministic, self-referential prompting with O‑dash‑O shapes and MCP intents.

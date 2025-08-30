@@ -1,0 +1,12 @@
+{
+  "hero": {
+    "headline": "ThoughtTransfer: Autonomous Docs that Improve Themselves",
+    "subhead": "PMCR-O loop baked in. From plan to optimize—on repeat."
+  },
+  "about": "ThoughtTransfer is a self-evolving documentation system that uses intents, MCP servers, and automated checks to keep docs accurate and alive.",
+  "services": [
+    { "name": "Doc Orchestration", "description": "Run PMCR-O pipelines over your knowledge base." },
+    { "name": "Quality Gates", "description": "Automated completeness, accuracy, relevance, and quality scoring." },
+    { "name": "Evolution Triggers", "description": "Emit triggers from usage patterns to auto-improve docs." }
+  ]
+}

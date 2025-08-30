@@ -41,6 +41,15 @@ This document **references itself** through:
 **Reflect**: Analyze how self-reference enhances documentation quality
 **Optimize**: Evolve documentation based on self-reference patterns
 
+---
+
+## PMCR-O Loop Execution
+- Planner: Define where SELFIES analogies provide value.
+- Maker: Embed code examples and cross-references.
+- Checker: Validate links and example fidelity.
+- Reflector: Capture feedback from usage.
+- Orchestrator: Schedule enhancements based on metrics.
+
 ### Self-Assessment Section
 
 **Quality Metrics**:

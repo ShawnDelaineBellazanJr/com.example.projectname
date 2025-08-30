@@ -1,0 +1,23 @@
+{
+  "name": "Ollama Integration Test",
+  "description": "Test Ollama integration using code-runner MCP server",
+  "server": "code-runner",
+  "listTools": true,
+  "calls": [
+    {
+      "tool": "run_code",
+      "params": {
+        "code": "ollama list",
+        "languageId": "shellscript"
+      }
+    },
+    {
+      "tool": "run_code",
+      "params": {
+        "code": "echo 'Testing Ollama integration with ThoughtTransfer framework'",
+        "languageId": "shellscript"
+      }
+    }
+  ],
+  "out": "out/ollama-integration-test.result.json"
+}

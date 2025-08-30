@@ -89,3 +89,15 @@ This page frames key philosophers as design lenses for recursive AI systems. Eac
 - If safety incidents occur: strengthen guardrails for the relevant lens.
 - If lineage depth > threshold: adjust von Neumann replication budgets.
 - If diversity falls: increase Deleuze probe variety or adjust judge criteria.
+
+---
+
+## PMCR-O Loop Execution
+- Planner: Select lenses relevant to current engineering tasks.
+- Maker: Encode constraints as intent shapes and guardrails.
+- Checker: Measure outcomes vs. lens metrics.
+- Reflector: Update mappings and guardrails.
+- Orchestrator: Choose lenses per project phase.
+
+## Meta-Commentary
+- Meta-Note: This page guides how philosophy informs engineering and declares how it updates itself.

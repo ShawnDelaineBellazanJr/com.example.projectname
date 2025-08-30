@@ -1,0 +1,15 @@
+{
+  "name": "Sequential Thinking MCP Server Test",
+  "description": "Test the sequential-thinking MCP server capabilities",
+  "server": "sequential-thinking",
+  "listTools": true,
+  "calls": [
+    {
+      "tool": "echo",
+      "params": {
+        "message": "Sequential thinking MCP server test completed successfully"
+      }
+    }
+  ],
+  "out": "out/sequential-thinking-test.result.json"
+}

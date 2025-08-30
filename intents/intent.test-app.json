@@ -1,0 +1,29 @@
+{
+  "server": {
+    "name": "Everything",
+    "command": "npx",
+    "args": ["-y", "@modelcontextprotocol/server-everything"]
+  },
+  "listTools": false,
+  "calls": [
+    {
+  "tool": "echo",
+  "params": {
+    "message": "Analyze test app idea market opportunities and AI integration potential"
+  }
+},
+    {
+  "tool": "echo",
+  "params": {
+    "message": "Research current test app idea industry trends, competitor analysis, and customer pain points"
+  }
+},
+    {
+  "tool": "echo",
+  "params": {
+    "message": "Design AI-powered features: automated workflows, intelligent recommendations, user personalization"
+  }
+}
+  ],
+  "out": "out/intent.test-app.result.json"
+}

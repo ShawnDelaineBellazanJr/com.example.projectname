@@ -1,0 +1,21 @@
+{
+  "Server": {
+    "Name": "Everything",
+    "Command": "npx",
+    "Arguments": [
+      "-y",
+      "@modelcontextprotocol/server-everything"
+    ]
+  },
+  "Calls": [
+    {
+      "Tool": "echo",
+      "Params": {
+        "message": "Sequential thinking MCP server test completed successfully"
+      },
+      "Text": "Echo: Sequential thinking MCP server test completed successfully",
+      "TimestampUtc": "2025-08-30T00:36:39.3212128Z"
+    }
+  ],
+  "TimestampUtc": "2025-08-30T00:36:39.3220058Z"
+}

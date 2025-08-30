@@ -49,3 +49,15 @@ Docs that assess, improve, and evolve themselves through PMCR‑O and automation
 - If a concept page changes title/anchor: update links here.
 - If two terms overlap: merge or clarify distinctions.
 - If new patterns emerge in code: add a term with a cross‑link.
+
+---
+
+## PMCR-O Loop Execution
+- Planner: Identify necessary terms and authoritative sources.
+- Maker: Draft concise, citable entries with links.
+- Checker: Verify link targets and definitions.
+- Reflector: Remove ambiguities; align with practice.
+- Orchestrator: Schedule periodic glossary audits.
+
+## Meta-Commentary
+- Meta-Note: This glossary declares its own maintenance loop to remain accurate and aligned.

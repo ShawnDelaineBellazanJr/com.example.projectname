@@ -9,17 +9,53 @@
     
   </ItemGroup>
   <ItemGroup>
-    <PackageReference Include="ModelContextProtocol" Version="0.3.0-preview.4" />
+  <PackageReference Include="ModelContextProtocol" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\ProjectName.BuildTasks\ProjectName.BuildTasks.csproj" />
   </ItemGroup>
 
   <!-- Optional: run an intent config at build when RunIntentOnBuild=true -->
   <PropertyGroup>
-    <RunIntentOnBuild>false</RunIntentOnBuild>
-    <IntentConfig>$(MSBuildProjectDirectory)\..\..\intents\intent.echo.json</IntentConfig>
+  <RunIntentOnBuild>__RUN_INTENT_ON_BUILD__</RunIntentOnBuild>
+  <IntentConfig>__INTENT_CONFIG__</IntentConfig>
+  <GenerateSiteData>false</GenerateSiteData>
+  <OutputSiteJson>$(MSBuildProjectDirectory)\..\..\wwwroot\data\site.json</OutputSiteJson>
+  <!-- Optional site parameters with ENV fallbacks (also used at runtime by generateSiteJson) -->
+  <BusinessName Condition="'$(BusinessName)'==''">$([System.Environment]::GetEnvironmentVariable('BUSINESS_NAME'))</BusinessName>
+  <City Condition="'$(City)'==''">$([System.Environment]::GetEnvironmentVariable('CITY'))</City>
+  <State Condition="'$(State)'==''">$([System.Environment]::GetEnvironmentVariable('STATE'))</State>
+  <Phone Condition="'$(Phone)'==''">$([System.Environment]::GetEnvironmentVariable('PHONE'))</Phone>
+  <Email Condition="'$(Email)'==''">$([System.Environment]::GetEnvironmentVariable('EMAIL'))</Email>
+  <Services Condition="'$(Services)'==''">$([System.Environment]::GetEnvironmentVariable('SERVICES'))</Services>
+  <PrimaryColor Condition="'$(PrimaryColor)'==''">$([System.Environment]::GetEnvironmentVariable('PRIMARY_COLOR'))</PrimaryColor>
+  <GA4 Condition="'$(GA4)'==''">$([System.Environment]::GetEnvironmentVariable('GA4_ID'))</GA4>
+  <UseAI Condition="'$(UseAI)'==''">$([System.Environment]::GetEnvironmentVariable('USE_AI'))</UseAI>
+  <AiContentPath Condition="'$(AiContentPath)'==''">$(MSBuildProjectDirectory)\..\..\ai\content.json</AiContentPath>
   </PropertyGroup>
 
   <Target Name="RunIntent" AfterTargets="Build" Condition=" '$(RunIntentOnBuild)' == 'true' ">
     <Message Text="Running MCP intent: $(IntentConfig)" Importance="High" />
     <Exec Command="dotnet run --project &quot;$(MSBuildProjectFullPath)&quot; -- --config &quot;$(IntentConfig)&quot;" />
+  </Target>
+
+  <PropertyGroup>
+    <IsSiteGen>false</IsSiteGen>
+  </PropertyGroup>
+
+  <!-- Prefer in-proc MSBuild task when BuildTasks is available -->
+  <UsingTask TaskName="ProjectName.BuildTasks.GenerateSiteJsonTask" AssemblyFile="$(TargetDir)ProjectName.BuildTasks.dll" Condition="Exists('$(TargetDir)ProjectName.BuildTasks.dll')" />
+
+  <Target Name="GenerateSiteData" AfterTargets="Build" Condition="'$(GenerateSiteData)'=='true' and '$(IsSiteGen)'!='true'">
+    <Message Text="Generating site.json (prefer MSBuild task if available)" Importance="High" />
+
+  <ProjectName.BuildTasks.GenerateSiteJsonTask OutputPath="$(OutputSiteJson)"
+        BusinessName="$(BusinessName)" City="$(City)" State="$(State)" Phone="$(Phone)" Email="$(Email)"
+        Services="$(Services)" PrimaryColor="$(PrimaryColor)" GA4="$(GA4)" UseAI="$(UseAI)" AiContentPath="$(AiContentPath)"
+        Condition="Exists('$(TargetDir)ProjectName.BuildTasks.dll')" />
+
+    <!-- Fallback to out-of-proc client utility mode if the task isn't available -->
+    <Exec Command="dotnet run --project &quot;$(MSBuildProjectFullPath)&quot; -c &quot;$(Configuration)&quot; -p:IsSiteGen=true -- --generateSiteJson &quot;$(OutputSiteJson)&quot;"
+          Condition="!Exists('$(TargetDir)ProjectName.BuildTasks.dll')" />
   </Target>
 </Project>

@@ -1,0 +1,42 @@
+name: CI
+
+on:
+  push:
+    branches: [ main, master ]
+  pull_request:
+    branches: [ main, master ]
+
+jobs:
+  validate-and-build:
+    runs-on: windows-latest
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: '18'
+
+      - name: Install npm dependencies
+        run: npm install
+
+      - name: Validate self-referential docs
+        run: npm run validate-structure
+
+      - name: Validate site.json schema
+        run: npm run validate-site
+
+      - name: Validate plugin manifests
+        run: npm run validate-plugins
+
+      - name: Setup .NET
+        uses: actions/setup-dotnet@v4
+        with:
+          dotnet-version: '8.0.x'
+
+      - name: Restore
+        run: dotnet restore ./ProjectName.sln
+
+      - name: Build
+        run: dotnet build ./ProjectName.sln -c Release --no-restore

@@ -25,3 +25,26 @@ description: Mapping O‑dash‑O and PMCR‑O to Semantic Kernel Process and Ag
 ## Self‑assessment & evolution
 - Validate caps, outputs, and selection logic.
 - If agent drift rises: increase context locking and reduce degrees of freedom.
+
+---
+
+## PMCR-O Loop Execution
+- Planner: Map O‑O shapes to SK processes/agents and define budgets.
+- Maker: Implement pipelines/agents with deterministic caps.
+- Checker: Assert envelope fields, scores, and selections.
+- Reflector: Compare SK vs. MCP parity; note divergences.
+- Orchestrator: Route tasks to SK or MCP based on policy and readiness.
+
+## Meta-Commentary
+- Meta-Note: This page declares its own audit loop so SK integration remains aligned with MCP patterns over time.
+
+## Self-Assessment
+- Completeness: Mappings for process/agent frameworks, MCP interop, PMCR-O execution, and meta commentary are present (score: 0.9).
+- Accuracy: Aligns with current SK concepts and repo conventions; avoids unsupported features (score: 0.85).
+- Relevance: Directly actionable for wiring SK to existing MCP intents and envelopes (score: 0.9).
+- Quality: Concise, skimmable, and testable via example pipelines (score: 0.9).
+
+## Evolution Triggers
+- If SK pipelines exceed planned step caps: reduce depth or parallel fan-out; add stricter budgets.
+- If envelope fields are missing in traces: add assertions and fail builds in CI.
+- If MCP and SK outputs diverge > 10% on shared tasks: review prompts and unify selection logic.

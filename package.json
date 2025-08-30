@@ -7,13 +7,18 @@
     "build": "docfx build",
     "serve": "docfx serve _site",
     "validate-structure": "node scripts/validate-structure.js",
+  "validate-site": "node scripts/validate-site-schema.js",
+  "validate-plugins": "node scripts/validate-plugins.js",
     "validate-triggers": "node scripts/validate-triggers.js",
     "quality-check": "node scripts/quality-check.js",
     "evolution-check": "node scripts/evolution-check.js",
     "self-assess": "node scripts/self-assess.js",
     "evolution-triggers": "node scripts/evolution-triggers.js",
     "orchestrate": "node scripts/orchestrate.js",
+  "intent-queue:once": "node scripts/intent-queue-runner.js once",
+  "intent-queue:watch": "node scripts/intent-queue-runner.js watch",
     "generate-report": "node scripts/generate-report.js",
+  "full-validate": "npm run validate-structure && npm run validate-site && npm run validate-plugins",
     "full-assessment": "npm run orchestrate",
     "test": "npm run validate-structure && npm run self-assess",
     "dev": "npm run build && npm run serve",
@@ -47,5 +52,8 @@
   "bugs": {
     "url": "https://github.com/your-repo/thought-transfer/issues"
   },
-  "homepage": "https://your-repo.github.io/thought-transfer/"
+  "homepage": "https://your-repo.github.io/thought-transfer/",
+  "dependencies": {
+    "sqlite3": "^5.1.7"
+  }
 }

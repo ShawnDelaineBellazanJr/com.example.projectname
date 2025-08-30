@@ -1,0 +1,9 @@
+{
+  "server": {
+    "name": "Filesystem",
+    "command": "npx",
+    "args": ["-y", "@modelcontextprotocol/server-filesystem", "c:/Users/tooen/OneDrive/Desktop/ThoughtTransfer"]
+  },
+  "listTools": true,
+  "out": "out/intent.filesystem-list.result.json"
+}

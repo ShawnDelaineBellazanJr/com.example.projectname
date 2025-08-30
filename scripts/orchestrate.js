@@ -95,6 +95,16 @@ class MasterOrchestrator {
       }
     };
 
+    // Add intent generation if description provided
+    if (process.env.INTENT_DESCRIPTION) {
+      plan.sequence.unshift('generate_intent');
+      plan.intentDescription = process.env.INTENT_DESCRIPTION;
+      plan.intentName = process.env.INTENT_NAME || 'generated';
+      plan.intentSteps = parseInt(process.env.INTENT_STEPS) || 8;
+      plan.dependencies.generate_intent = [];
+      plan.priorities.generate_intent = 'high';
+    }
+
     this.logEvent('orchestration_planned', { plan });
     return plan;
   }
@@ -145,6 +155,8 @@ class MasterOrchestrator {
         return await this.generateReports();
       case 'update_metrics':
         return await this.updateMetrics();
+      case 'generate_intent':
+        return await this.generateIntent(plan.intentDescription, plan.intentName, plan.intentSteps);
       default:
         throw new Error(`Unknown step: ${step}`);
     }
@@ -264,6 +276,47 @@ class MasterOrchestrator {
           });
         } else {
           reject(new Error(`Evolution failed with code ${code}: ${errorOutput}`));
+        }
+      });
+
+      child.on('error', (error) => {
+        reject(error);
+      });
+    });
+  }
+
+  async generateIntent(description, name, steps = 8) {
+    console.log('🎯 Generating intent from description...');
+
+    const { spawn } = require('child_process');
+    const generatorScript = path.join(__dirname, 'generate-intent.js');
+
+    return new Promise((resolve, reject) => {
+      const child = spawn('node', [generatorScript, description, name, steps.toString()], {
+        cwd: this.projectRoot,
+        stdio: 'pipe'
+      });
+
+      let output = '';
+      let errorOutput = '';
+
+      child.stdout.on('data', (data) => {
+        output += data.toString();
+      });
+
+      child.stderr.on('data', (data) => {
+        errorOutput += data.toString();
+      });
+
+      child.on('close', (code) => {
+        if (code === 0) {
+          resolve({
+            summary: 'Intent generated successfully',
+            output: output,
+            exitCode: code
+          });
+        } else {
+          reject(new Error(`Intent generation failed with code ${code}: ${errorOutput}`));
         }
       });
 

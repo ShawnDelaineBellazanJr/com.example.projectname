@@ -31,6 +31,69 @@ Notes:
 2) Use a small ingestion script (Node/C#) to parse and upsert rows per table.
 3) Optionally compute `idx_text.keywords` and token counts.
 
+## SQLite ingestion script (Node.js)
+```javascript
+const sqlite3 = require('sqlite3').verbose();
+const fs = require('fs');
+const path = require('path');
+
+const db = new sqlite3.Database('mydatabase.db');
+
+// Create tables if not exist
+db.serialize(() => {
+  db.run(`CREATE TABLE IF NOT EXISTS runs (
+    run_id TEXT PRIMARY KEY,
+    intent_name TEXT,
+    mode TEXT,
+    started_at TEXT,
+    ended_at TEXT,
+    server_name TEXT
+  )`);
+
+  db.run(`CREATE TABLE IF NOT EXISTS steps (
+    run_id TEXT,
+    step_id TEXT,
+    label TEXT,
+    tool TEXT,
+    input_json TEXT,
+    output_text TEXT,
+    output_json TEXT,
+    score REAL,
+    selected INTEGER,
+    PRIMARY KEY(run_id, step_id)
+  )`);
+
+  // Add other tables similarly
+});
+
+// Ingest from JSON file
+function ingestResult(jsonPath) {
+  const data = JSON.parse(fs.readFileSync(jsonPath, 'utf8'));
+  
+  const runId = data.run.id;
+  db.run(`INSERT OR REPLACE INTO runs VALUES (?, ?, ?, ?, ?, ?)`, 
+    [runId, data.intent, data.mode, data.started_at, data.ended_at, data.server.name]);
+
+  data.calls.forEach((call, idx) => {
+    db.run(`INSERT OR REPLACE INTO steps VALUES (?, ?, ?, ?, ?, ?, ?, ?, ?)`,
+      [runId, `step-${idx}`, call.label || '', call.tool, JSON.stringify(call.params), call.text, '', null, null]);
+  });
+}
+
+// Example usage
+ingestResult('out/result.json');
+```
+
+## Query script (Node.js)
+```javascript
+const db = new sqlite3.Database('mydatabase.db');
+
+db.all(`SELECT run_id, intent_name, started_at FROM runs ORDER BY started_at DESC LIMIT 10`, (err, rows) => {
+  if (err) console.error(err);
+  else console.log('Latest runs:', rows);
+});
+```
+
 ## Query examples
 - Latest successful runs per intent:
   SELECT run_id, intent_name, mode, started_at FROM runs ORDER BY started_at DESC LIMIT 10;
@@ -53,3 +116,15 @@ Notes:
 - If `artifacts.sha256` missing: add hashing to post‑run.
 - If average score < τ: schedule rubric revision in prompts.
 - If DB size > threshold: archive old runs to cold storage.
+
+---
+
+## PMCR-O Loop Execution
+- Planner: Define the minimal schema and ingestion cadence.
+- Maker: Ingest runs/artifacts/metrics into SQLite deterministically.
+- Checker: Run integrity queries (null hashes, missing rows) and compute indices.
+- Reflector: Compare query utility vs. cost; refine schema only when needed.
+- Orchestrator: Schedule compaction/archival and refresh indices.
+
+## Meta-Commentary
+- Meta-Note: The page declares contracts and checks it expects from itself and the ingestion scripts to remain a living spec.

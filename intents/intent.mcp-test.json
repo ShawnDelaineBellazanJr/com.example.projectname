@@ -1,0 +1,17 @@
+{
+  "server": {
+    "name": "Everything",
+    "command": "npx",
+    "args": ["-y", "@modelcontextprotocol/server-everything"]
+  },
+  "listTools": true,
+  "calls": [
+    {
+      "tool": "echo",
+      "params": {
+        "message": "✅ MCP Server test completed - tools listed above"
+      }
+    }
+  ],
+  "out": "out/mcp-test.result.json"
+}

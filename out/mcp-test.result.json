@@ -1,0 +1,21 @@
+{
+  "Server": {
+    "Name": "Everything",
+    "Command": "npx",
+    "Arguments": [
+      "-y",
+      "@modelcontextprotocol/server-everything"
+    ]
+  },
+  "Calls": [
+    {
+      "Tool": "echo",
+      "Params": {
+        "message": "\u2705 MCP Server test completed - tools listed above"
+      },
+      "Text": "Echo: \u2705 MCP Server test completed - tools listed above",
+      "TimestampUtc": "2025-08-30T01:04:43.7528428Z"
+    }
+  ],
+  "TimestampUtc": "2025-08-30T01:04:43.7532406Z"
+}

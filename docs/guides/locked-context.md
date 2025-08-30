@@ -31,6 +31,18 @@ description: Building safe, reproducible context snapshots with provenance and d
 ## Evolution triggers
 - If drift > threshold: tighten scope or pin versions.
 - If provenance gaps: require source registration before use.
+
+---
+
+## PMCR-O Loop Execution
+- Planner: Decide snapshot scope, provenance requirements, and drift thresholds.
+- Maker: Capture hashes, timestamps, and scopes; freeze context for the run.
+- Checker: Verify integrity and enforce whitelist; fail on drift.
+- Reflector: Record mismatches and tighten policies.
+- Orchestrator: Apply locked-context policy across intents.
+
+## Meta-Commentary
+- Meta-Note: This guide embeds its control loop so auditors can trace how locked context is planned, executed, and evolved.
 ---
 title: Locked Context: Making Reasoning Stable
 description: Techniques to pin critical facts, snapshots, and constraints so reasoning stays bounded and auditable.

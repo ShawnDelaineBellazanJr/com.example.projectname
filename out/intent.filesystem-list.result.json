@@ -1,0 +1,13 @@
+{
+  "Server": {
+    "Name": "Filesystem",
+    "Command": "npx",
+    "Arguments": [
+      "-y",
+      "@modelcontextprotocol/server-filesystem",
+      "c:/Users/tooen/OneDrive/Desktop/ThoughtTransfer"
+    ]
+  },
+  "Calls": [],
+  "TimestampUtc": "2025-08-30T01:04:51.0826595Z"
+}

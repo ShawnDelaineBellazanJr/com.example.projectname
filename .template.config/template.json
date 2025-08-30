@@ -1,0 +1,89 @@
+{
+  "$schema": "http://json.schemastore.org/template",
+  "author": "ThoughtTransfer",
+  "classifications": [
+    "MCP",
+    "Agent",
+    "DocFX",
+    ".NET",
+    "Self-Referential",
+    "Documentation"
+  ],
+  "name": "ThoughtTransfer: Self-Referential MCP Framework",
+  "identity": "ThoughtTransfer.Template",
+  "shortName": "thoughttransfer",
+  "sourceName": "ProjectName",
+  "preferNameDirectory": true,
+  "tags": {
+    "language": "C#",
+    "type": "project"
+  },
+  "symbols": {
+    "PackageId": {
+      "type": "generated",
+      "generator": "guid"
+    },
+    "RunIntentOnBuild": {
+      "type": "parameter",
+      "datatype": "bool",
+      "defaultValue": "false",
+      "replaces": "__RUN_INTENT_ON_BUILD__",
+      "description": "Run a configured MCP intent automatically after build"
+    },
+    "IntentConfig": {
+      "type": "parameter",
+      "datatype": "text",
+      "defaultValue": "intents/intent.echo.json",
+      "replaces": "__INTENT_CONFIG__",
+      "description": "Path to the default intent config JSON"
+    }
+  },
+  "sources": [
+    {
+      "modifiers": [
+        {
+          "exclude": [
+            "**/.git/**",
+            "**/.github/**",
+            "**/.vs/**",
+            "**/bin/**",
+            "**/obj/**",
+            "**/node_modules/**",
+            "**/_site/**",
+            "**/logs/**",
+            "**/docs/logs/**",
+            "**/docs/metrics/**",
+            "**/mydatabase.db",
+            "**/telerik-license.txt"
+          ]
+        }
+      ]
+    }
+  ],
+  "primaryOutputs": [
+    { "path": "ProjectName.sln" }
+  ],
+  "postActions": [
+    {
+      "id": "restore",
+      "description": "Restore NuGet packages",
+      "actionId": "210D431B-A78B-4D2F-B762-4ED3E3EA9025",
+      "manualInstructions": [
+        { "text": "Run: dotnet restore" }
+      ],
+      "continueOnError": true
+    },
+    {
+      "id": "readme",
+      "description": "Open README for next steps",
+      "actionId": "CB4B4E78-1097-4DF9-9F3A-5A41D2E5F265",
+      "args": {
+        "files": [ "README.md" ]
+      },
+      "manualInstructions": [
+        { "text": "Open README.md for setup and usage." }
+      ],
+      "continueOnError": true
+    }
+  ]
+}

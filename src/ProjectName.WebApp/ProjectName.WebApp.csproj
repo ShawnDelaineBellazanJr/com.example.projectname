@@ -1,0 +1,35 @@
+<Project Sdk="Microsoft.NET.Sdk.BlazorWebAssembly">
+  <PropertyGroup>
+    <TargetFramework>net9.0</TargetFramework>
+    <Nullable>enable</Nullable>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <IncludeTelerik>false</IncludeTelerik>
+    <OutputType>Exe</OutputType>
+  </PropertyGroup>
+
+  <ItemGroup Condition="'$(IncludeTelerik)'=='true'">
+    <PackageReference Include="Telerik.UI.for.Blazor" Version="5.0.0" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" PrivateAssets="all" />
+  </ItemGroup>
+
+  <PropertyGroup>
+    <OutputSiteJson>$(MSBuildProjectDirectory)\wwwroot\data\site.json</OutputSiteJson>
+  <PluginsOutDir>$(MSBuildProjectDirectory)\plugins</PluginsOutDir>
+  </PropertyGroup>
+
+  <Target Name="GenerateSiteDataForWeb" BeforeTargets="Build">
+    <Message Text="Generating site.json for WebApp via MCP client" Importance="High" />
+    <MakeDir Directories="$(MSBuildProjectDirectory)\wwwroot\data" />
+    <Exec Command="dotnet run --project &quot;$(MSBuildProjectDirectory)\..\ProjectName.McpClient\ProjectName.McpClient.csproj&quot; -- --generateSiteJson &quot;$(OutputSiteJson)&quot;" />
+  </Target>
+
+  <Target Name="ExportMcpPlugins" AfterTargets="GenerateSiteDataForWeb">
+    <Message Text="Exporting MCP plugin manifests to $(PluginsOutDir)" Importance="High" />
+    <MakeDir Directories="$(PluginsOutDir)" />
+    <Exec Command="dotnet run --project &quot;$(MSBuildProjectDirectory)\..\ProjectName.McpClient\ProjectName.McpClient.csproj&quot; -- --exportToolsFromAllIntents &quot;$(MSBuildProjectDirectory)\..\..\intents&quot; --outDir &quot;$(PluginsOutDir)&quot;" />
+  </Target>
+</Project>

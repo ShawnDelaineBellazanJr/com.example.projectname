@@ -1,0 +1,17 @@
+{
+  "name": "Filesystem MCP Server Test",
+  "description": "Test the filesystem MCP server capabilities",
+  "server": "filesystem",
+  "listTools": true,
+  "calls": [
+    {
+      "tool": "read_file",
+      "params": {
+        "path": "README.md",
+        "offset": 1,
+        "limit": 10
+      }
+    }
+  ],
+  "out": "out/filesystem-test.result.json"
+}

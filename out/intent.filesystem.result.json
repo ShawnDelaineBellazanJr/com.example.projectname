@@ -1,0 +1,22 @@
+{
+  "Server": {
+    "Name": "Filesystem",
+    "Command": "npx",
+    "Arguments": [
+      "-y",
+      "@modelcontextprotocol/server-filesystem",
+      "${workspaceFolder}"
+    ]
+  },
+  "Calls": [
+    {
+      "Tool": "list_directory",
+      "Params": {
+        "path": "."
+      },
+      "Text": "[FILE] .env\n[DIR] .git\n[DIR] .github\n[FILE] .gitignore\n[DIR] .template.config\n[DIR] .vs\n[DIR] .vscode\n[DIR] ai\n[FILE] CHANGELOG.md\n[FILE] docfx.json\n[DIR] docs\n[FILE] faq.md\n[DIR] intents\n[DIR] logs\n[FILE] mydatabase.db\n[DIR] node_modules\n[DIR] out\n[FILE] package-lock.json\n[FILE] package.json\n[FILE] ProjectName.sln\n[FILE] PromptInstructions.md\n[FILE] README.md\n[FILE] ROADMAP.md\n[DIR] scripts\n[FILE] setup-env.bat\n[FILE] setup-env.ps1\n[DIR] src\n[FILE] telerik-license.txt\n[DIR] wwwroot\n[DIR] _site",
+      "TimestampUtc": "2025-08-30T01:04:57.1086538Z"
+    }
+  ],
+  "TimestampUtc": "2025-08-30T01:04:57.1090058Z"
+}

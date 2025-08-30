@@ -1,0 +1,12 @@
+{
+  "server": {
+    "name": "Everything",
+    "command": "npx",
+    "args": ["-y", "@modelcontextprotocol/server-everything"]
+  },
+  "listTools": false,
+  "calls": [
+    {{calls}}
+  ],
+  "out": "out/intent.{{name}}.result.json"
+}

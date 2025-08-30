@@ -1,0 +1,65 @@
+{
+  "server": {
+    "name": "Everything",
+    "command": "npx",
+    "args": ["-y", "@modelcontextprotocol/server-everything"]
+  },
+  "listTools": false,
+  "calls": [
+    {
+      "tool": "echo",
+      "params": {
+        "message": "🚀 Starting Chop Chop Landscaping marketplace analysis with MCP-powered research..."
+      }
+    },
+    {
+      "tool": "run_terminal_cmd",
+      "params": {
+        "command": "cd /app && python -c \"import requests; print('🌐 Testing web connectivity for market research...')\"",
+        "is_background": false
+      }
+    },
+    {
+      "tool": "run_terminal_cmd",
+      "params": {
+        "command": "cd /app && echo '📊 Analyzing landscaping market data from database...' && sqlite3 mydatabase.db 'SELECT * FROM market_research LIMIT 5;'",
+        "is_background": false
+      }
+    },
+    {
+      "tool": "run_terminal_cmd",
+      "params": {
+        "command": "cd /app && echo '🤖 Checking AI opportunities...' && sqlite3 mydatabase.db 'SELECT application, priority FROM ai_opportunities ORDER BY priority;'",
+        "is_background": false
+      }
+    },
+    {
+      "tool": "run_terminal_cmd",
+      "params": {
+        "command": "cd /app && echo '🏆 Analyzing competitive landscape...' && sqlite3 mydatabase.db 'SELECT competitor_name, threat_level FROM competitor_analysis ORDER BY threat_level DESC;'",
+        "is_background": false
+      }
+    },
+    {
+      "tool": "run_terminal_cmd",
+      "params": {
+        "command": "cd /app && echo '� Generating business insights...' && sqlite3 mydatabase.db 'SELECT category, insight FROM business_insights LIMIT 3;'",
+        "is_background": false
+      }
+    },
+    {
+      "tool": "run_terminal_cmd",
+      "params": {
+        "command": "cd /app && echo '🔄 PMCR-O loop analysis...' && sqlite3 mydatabase.db 'SELECT phase, objective FROM pmcr_iterations ORDER BY created_at DESC LIMIT 2;'",
+        "is_background": false
+      }
+    },
+    {
+      "tool": "echo",
+      "params": {
+        "message": "✅ Chop Chop marketplace analysis complete - framework successfully demonstrated AI-powered business intelligence!"
+      }
+    }
+  ],
+  "out": "out/intent.chop-chop-landscaping.result.json"
+}

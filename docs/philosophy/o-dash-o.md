@@ -78,3 +78,6 @@ Target ≥85% on automated quality checks.
 > Comment (Reflect): The page unifies O‑O shapes as topologies with a single output envelope, enabling consistent ops and evaluation.
 
 > Comment (Optimize): Next revision could add JSON‑Path style templating for nested outputs and small examples per topology.
+
+## Meta-Commentary
+This document is self-referential: it names its scope, exposes checks and triggers, and binds O‑O definitions to the repo’s MCP intent patterns. The meta section ensures future edits keep PMCR‑O alignment and validator compliance.

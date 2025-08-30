@@ -1,0 +1,53 @@
+@page "/"
+@inject SiteContentService Content
+
+@code {
+    private SiteContent? site;
+    protected override async Task OnInitializedAsync()
+    {
+        site = await Content.GetAsync();
+    }
+}
+
+<h1>@(site?.Name ?? "ThoughtTransfer")</h1>
+
+@if (site?.Hero is not null)
+{
+    <section>
+        <h2>@(site.Hero.TryGetValue("title", out var t) ? t : null)</h2>
+        <p>@(site.Hero.TryGetValue("subtitle", out var s) ? s : null)</p>
+    </section>
+}
+
+@if (site?.About is not null)
+{
+    <section>
+        <h3>About</h3>
+        <p>@(site.About.TryGetValue("text", out var a) ? a : null)</p>
+    </section>
+}
+
+@if (site?.Services is not null)
+{
+    <section>
+        <h3>Services</h3>
+        <ul>
+            @foreach (var svc in site.Services)
+            {
+                <li>@(svc.TryGetValue("name", out var n) ? n : null)</li>
+            }
+        </ul>
+    </section>
+}
+
+@if (site?.Metrics is not null)
+{
+    <section>
+        <h4>Build Info</h4>
+        <ul>
+            <li>Generated: @(site.Metrics.TryGetValue("buildTimestampUtc", out var ts) ? ts : null)</li>
+            <li>Docs Score: @(site.Metrics.TryGetValue("docsScore", out var ds) ? ds : "n/a")</li>
+            <li>Generator: @(site.Metrics.TryGetValue("generator", out var gen) ? gen : null)</li>
+        </ul>
+    </section>
+}

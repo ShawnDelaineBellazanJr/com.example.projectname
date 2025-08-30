@@ -1,0 +1,15 @@
+{
+  "server": {
+    "name": "Filesystem",
+    "command": "npx",
+    "args": ["-y", "@modelcontextprotocol/server-filesystem", "${workspaceFolder}"]
+  },
+  "listTools": false,
+  "call": {
+  "tool": "list_directory",
+    "params": {
+      "path": "."
+    }
+  },
+  "out": "out/intent.filesystem.result.json"
+}

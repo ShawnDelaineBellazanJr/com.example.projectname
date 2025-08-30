@@ -1,11 +1,11 @@
 # System Health Report
 
-Generated: 2025-08-29T18:19:54.978Z
+Generated: 2025-08-30T00:32:44.199Z
 
 ## Health Metrics
 
 ### Documentation Completeness
-74%
+64%
 
 ### System Reliability
 100%
@@ -21,7 +21,7 @@ Generated: 2025-08-29T18:19:54.978Z
 
 ## Overall Health Score
 
-84/100
+81/100
 
 ## Recommendations
 
@@ -31,16 +31,19 @@ Generated: 2025-08-29T18:19:54.978Z
 
 This health monitoring system embodies self-reference by assessing its own health metrics and providing recommendations for improvement.
 
+---
+
 ## PMCR-O Loop Execution
-- Plan: Define health signals and thresholds.
-- Make: Collect metrics from `docs/metrics/system-metrics.json`.
-- Check: Evaluate against thresholds and historical baselines.
-- Reflect: Identify patterns and anomalies.
-- Optimize: Recommend remediations and automation.
+- Planner: Choose health metrics and thresholds.
+- Maker: Collect and compute values deterministically.
+- Checker: Compare against thresholds; flag issues.
+- Reflector: Recommend improvements and track deltas.
+- Orchestrator: Schedule remediation tasks and rechecks.
 
 ## Evolution Triggers
-- If validation rate < 60%: auto-create issues to patch docs.
-- If error rate spikes: escalate to maintainers and widen checks.
+- If completeness < 80%: prioritize docs fixes and validations.
+- If reliability < 95%: investigate build/test flakiness.
+- If debt > 30%: schedule refactors with measurable outcomes.
 
 ## Meta-Commentary
-This document doubles as a control surface for health automation; sections map to scripts for continuous improvement.
+- Meta-Note: This page declares its loop and meta so automation can validate and evolve it.

@@ -1,0 +1,57 @@
+{
+  "Server": {
+    "Name": "Everything",
+    "Command": "npx",
+    "Arguments": [
+      "-y",
+      "@modelcontextprotocol/server-everything"
+    ]
+  },
+  "Tools": [
+    {
+      "name": "echo",
+      "description": "Echoes back the input"
+    },
+    {
+      "name": "add",
+      "description": "Adds two numbers"
+    },
+    {
+      "name": "longRunningOperation",
+      "description": "Demonstrates a long running operation with progress updates"
+    },
+    {
+      "name": "printEnv",
+      "description": "Prints all environment variables, helpful for debugging MCP server configuration"
+    },
+    {
+      "name": "sampleLLM",
+      "description": "Samples from an LLM using MCP\u0027s sampling feature"
+    },
+    {
+      "name": "getTinyImage",
+      "description": "Returns the MCP_TINY_IMAGE"
+    },
+    {
+      "name": "annotatedMessage",
+      "description": "Demonstrates how annotations can be used to provide metadata about content"
+    },
+    {
+      "name": "getResourceReference",
+      "description": "Returns a resource reference that can be used by MCP clients"
+    },
+    {
+      "name": "startElicitation",
+      "description": "Demonstrates the Elicitation feature by asking the user to provide information about their favorite color, number, and pets."
+    },
+    {
+      "name": "getResourceLinks",
+      "description": "Returns multiple resource links that reference different types of resources"
+    },
+    {
+      "name": "structuredContent",
+      "description": "Returns structured content along with an output schema for client data validation"
+    }
+  ],
+  "TimestampUtc": "2025-08-30T01:38:14.7140098Z"
+}

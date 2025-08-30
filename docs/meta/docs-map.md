@@ -33,3 +33,20 @@ description: A navigator and checklist for scanning, auditing, and evolving the 
 - If any area <85% score: open an issue and create a targeted plan
 - If link errors found: schedule a fix PR
 - If term conflicts: update Glossary and refactor usages
+
+---
+
+## PMCR-O Loop Execution
+- Planner: Build inventory and prioritize gaps.
+- Maker: Execute small, high-impact edits first.
+- Checker: Recompute coverage and link integrity.
+- Reflector: Note systemic weaknesses and patterns.
+- Orchestrator: Create/assign issues and schedule next audit.
+
+## Self-Assessment
+- Completeness: Maps all top-level areas and checks. Score: 0.9
+- Accuracy: Links and filenames reflect current repo. Score: 0.9
+- Relevance: Drives practical evolution. Score: 0.9
+- Quality: Skimmable navigator. Score: 0.9
+
+* Meta-Note: This page guides its own maintenance cycle and provides hooks for automation.

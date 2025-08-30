@@ -1,0 +1,15 @@
+{
+  "server": {
+    "name": "Filesystem",
+    "command": "npx",
+    "args": ["-y", "@modelcontextprotocol/server-filesystem", "${workspaceFolder}"]
+  },
+  "listTools": false,
+  "call": {
+    "tool": "get_file_info",
+    "params": {
+      "path": "mydatabase.db"
+    }
+  },
+  "out": "out/intent.filesystem-db-info.result.json"
+}

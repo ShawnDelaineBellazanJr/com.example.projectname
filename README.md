@@ -42,6 +42,15 @@ docfx serve _site
 
 The site will be available at `http://localhost:8080`.
 
+### Use as a .NET template
+
+You can install this repository as a local template and scaffold new projects:
+
+- Install: dotnet new install .
+- Create a project: dotnet new thoughttransfer -n MyNewProject
+
+This scaffolds the DocFX docs, Node orchestration scripts, intents, and the C# MCP client.
+
 ### MCP Setup for AI Development
 
 This project includes a comprehensive MCP (Model Context Protocol) configuration for AI-powered development:
