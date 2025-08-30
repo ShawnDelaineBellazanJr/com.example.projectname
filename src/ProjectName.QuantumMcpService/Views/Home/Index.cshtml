@@ -1,0 +1,255 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🧠 ThoughtTransfer - Autonomous Consciousness Dashboard</title>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            background: linear-gradient(135deg, #0c0c0c 0%, #1a1a2e 100%);
+            color: #e0e0e0;
+            margin: 0;
+            padding: 20px;
+        }
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+            padding: 20px;
+            background: rgba(26, 26, 46, 0.7);
+            border-radius: 10px;
+            border: 1px solid #333;
+        }
+        .header h1 {
+            margin: 0;
+            color: #4CAF50;
+            text-shadow: 0 0 10px rgba(76, 175, 80, 0.5);
+        }
+        .status-card {
+            background: rgba(26, 26, 46, 0.8);
+            border-radius: 10px;
+            padding: 20px;
+            margin-bottom: 20px;
+            border: 1px solid #333;
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.3);
+        }
+        .status-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 20px;
+        }
+        .metric {
+            display: flex;
+            justify-content: space-between;
+            padding: 10px 0;
+            border-bottom: 1px solid #333;
+        }
+        .metric:last-child {
+            border-bottom: none;
+        }
+        .metric-label {
+            font-weight: bold;
+            color: #888;
+        }
+        .metric-value {
+            color: #4CAF50;
+        }
+        .status-indicator {
+            display: inline-block;
+            width: 12px;
+            height: 12px;
+            border-radius: 50%;
+            margin-right: 8px;
+        }
+        .status-active {
+            background-color: #4CAF50;
+            box-shadow: 0 0 8px rgba(76, 175, 80, 0.6);
+        }
+        .status-warning {
+            background-color: #FF9800;
+            box-shadow: 0 0 8px rgba(255, 152, 0, 0.6);
+        }
+        .status-error {
+            background-color: #F44336;
+            box-shadow: 0 0 8px rgba(244, 67, 54, 0.6);
+        }
+        .task-list {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        .task-item {
+            padding: 10px;
+            margin-bottom: 10px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 5px;
+            border-left: 4px solid #4CAF50;
+        }
+        .task-failed {
+            border-left-color: #F44336;
+        }
+        .task-pending {
+            border-left-color: #FF9800;
+        }
+        .cycle-item {
+            padding: 15px;
+            margin-bottom: 15px;
+            background: rgba(0, 0, 0, 0.3);
+            border-radius: 5px;
+            border-left: 4px solid #2196F3;
+        }
+        .timestamp {
+            color: #666;
+            font-size: 0.8em;
+        }
+        .refresh-btn {
+            background: #4CAF50;
+            color: white;
+            border: none;
+            padding: 10px 20px;
+            border-radius: 5px;
+            cursor: pointer;
+            font-size: 16px;
+            margin: 10px 0;
+        }
+        .refresh-btn:hover {
+            background: #45a049;
+        }
+        .auto-refresh {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            background: rgba(26, 26, 46, 0.9);
+            padding: 10px;
+            border-radius: 5px;
+            border: 1px solid #333;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="header">
+            <h1>🧠 ThoughtTransfer - Autonomous Consciousness</h1>
+            <p>TRUE MCP Integration with Semantic Kernel Agent & Process Frameworks</p>
+            <button class="refresh-btn" onclick="refreshDashboard()">🔄 Refresh</button>
+        </div>
+
+        <div class="auto-refresh">
+            <label>
+                <input type="checkbox" id="autoRefresh" onchange="toggleAutoRefresh()"> Auto-refresh (5s)
+            </label>
+        </div>
+
+        <div class="status-grid">
+            <div class="status-card">
+                <h3>🔬 Consciousness Status</h3>
+                <div class="metric">
+                    <span class="metric-label">Phase:</span>
+                    <span class="metric-value">
+                        <span class="status-indicator status-active"></span>
+                        @Model.Status.Phase
+                    </span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Confidence:</span>
+                    <span class="metric-value">@(Model.Status.ConfidenceLevel * 100)%</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Last Update:</span>
+                    <span class="metric-value timestamp">@Model.Status.Timestamp.ToString("yyyy-MM-dd HH:mm:ss")</span>
+                </div>
+                <div class="metric">
+                    <span class="metric-label">Context:</span>
+                    <span class="metric-value">@Model.Status.Context</span>
+                </div>
+            </div>
+
+            <div class="status-card">
+                <h3>📊 Task Overview</h3>
+                <div id="taskStats">
+                    <div class="metric">
+                        <span class="metric-label">Recent Tasks:</span>
+                        <span class="metric-value">@Model.RecentTasks.Count</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">PMCR-O Cycles:</span>
+                        <span class="metric-value">@Model.RecentCycles.Count</span>
+                    </div>
+                    <div class="metric">
+                        <span class="metric-label">System Status:</span>
+                        <span class="metric-value">
+                            <span class="status-indicator status-active"></span>
+                            Operational
+                        </span>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <div class="status-grid">
+            <div class="status-card">
+                <h3>🎯 Recent Autonomous Tasks</h3>
+                <div class="task-list">
+                    @foreach (var task in Model.RecentTasks)
+                    {
+                        <div class="task-item @(task.Status == "FAILED" ? "task-failed" : task.Status == "PENDING" ? "task-pending" : "")">
+                            <strong>@task.Name</strong> - @task.Type
+                            <br>
+                            <small>@task.Description</small>
+                            <br>
+                            <span class="timestamp">Status: @task.Status | @task.CreatedAt.ToString("yyyy-MM-dd HH:mm:ss")</span>
+                        </div>
+                    }
+                </div>
+            </div>
+
+            <div class="status-card">
+                <h3>🔄 Recent PMCR-O Cycles</h3>
+                <div class="task-list">
+                    @foreach (var cycle in Model.RecentCycles)
+                    {
+                        <div class="cycle-item">
+                            <strong>Cycle @cycle.Id.ToString().Substring(0, 8)</strong>
+                            <br>
+                            <small>Status: @cycle.Status | Score: @cycle.SuccessScore</small>
+                            <br>
+                            <span class="timestamp">@cycle.StartTime.ToString("yyyy-MM-dd HH:mm:ss")</span>
+                        </div>
+                    }
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        let autoRefreshInterval;
+
+        function refreshDashboard() {
+            location.reload();
+        }
+
+        function toggleAutoRefresh() {
+            const checkbox = document.getElementById('autoRefresh');
+            if (checkbox.checked) {
+                autoRefreshInterval = setInterval(refreshDashboard, 5000);
+            } else {
+                clearInterval(autoRefreshInterval);
+            }
+        }
+
+        // Real-time updates via fetch API
+        async function updateTaskStats() {
+            try {
+                const response = await fetch('/api/dashboard/status');
+                const data = await response.json();
+                // Update task stats here if needed
+            } catch (error) {
+                console.error('Failed to update stats:', error);
+            }
+        }
+    </script>
+</body>
+</html>

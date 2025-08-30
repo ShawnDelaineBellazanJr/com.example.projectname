@@ -66,5 +66,5 @@
       "description": "Returns the list of directories that this server is allowed to access. Subdirectories within these allowed directories are also accessible. Use this to understand which directories and their nested paths are available before trying to access files."
     }
   ],
-  "TimestampUtc": "2025-08-30T01:38:09.6550756Z"
+  "TimestampUtc": "2025-08-30T05:41:59.5311943Z"
 }

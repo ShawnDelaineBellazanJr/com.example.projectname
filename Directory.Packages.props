@@ -5,12 +5,15 @@
     <NoWarn>$(NoWarn);NU1507</NoWarn>
   </PropertyGroup>
   <ItemGroup>
-    <PackageVersion Include="Aspire.Hosting.PostgreSQL" Version="9.4.0" />
-    <PackageVersion Include="Aspire.Hosting" Version="9.4.0" />
-    <PackageVersion Include="Aspire.Hosting.AppHost" Version="9.4.0" />
-    <PackageVersion Include="Aspire.Hosting.SqlServer" Version="9.4.0" />
-    <PackageVersion Include="Aspire.Hosting.Redis" Version="9.4.0" />
-    <PackageVersion Include="Aspire.StackExchange.Redis.OutputCaching" Version="9.4.0" />
+    <PackageVersion Include="Aspire.Hosting.PostgreSQL" Version="9.4.1" />
+    <PackageVersion Include="Aspire.Hosting" Version="9.4.1" />
+    <PackageVersion Include="Aspire.Hosting.AppHost" Version="9.4.1" />
+    <PackageVersion Include="Aspire.Hosting.SqlServer" Version="9.4.1" />
+    <PackageVersion Include="Aspire.Hosting.Redis" Version="9.4.1" />
+    <PackageVersion Include="Aspire.StackExchange.Redis" Version="9.4.1" />
+    <PackageVersion Include="Aspire.StackExchange.Redis.OutputCaching" Version="9.4.1" />
+    <PackageVersion Include="Aspire.Npgsql.EntityFrameworkCore.PostgreSQL" Version="9.4.1" />
+    <PackageVersion Include="Aspire.Hosting.NodeJs" Version="9.4.1" />
     <PackageVersion Include="CommunityToolkit.Aspire.Hosting.Ollama" Version="9.6.0" />
     <PackageVersion Include="CommunityToolkit.Aspire.OllamaSharp" Version="9.6.0" />
     <PackageVersion Include="Microsoft.AspNetCore.OpenApi" Version="9.0.7" />
@@ -19,6 +22,7 @@
     <PackageVersion Include="Microsoft.CodeAnalysis.CSharp" Version="4.12.0" />
     <PackageVersion Include="Microsoft.ML" Version="3.0.1" />
     <PackageVersion Include="Microsoft.ML.AutoML" Version="0.21.1" />
+    <PackageVersion Include="Microsoft.ML.TimeSeries" Version="3.0.1" />
     <PackageVersion Include="Microsoft.ML.DataView" Version="3.0.1" />
     <PackageVersion Include="Microsoft.ML.Vision" Version="3.0.1" />
     <PackageVersion Include="Microsoft.ML.ImageAnalytics" Version="3.0.1" />
@@ -26,7 +30,7 @@
     <PackageVersion Include="Microsoft.ML.OnnxRuntimeGenAI" Version="0.8.3" />
     <PackageVersion Include="Microsoft.ML.TensorFlow" Version="3.0.1" />
     <PackageVersion Include="Microsoft.ML.Tokenizers" Version="1.0.2" />
-    <PackageVersion Include="System.Numerics.Tensors" Version="9.0.7" />
+    <PackageVersion Include="System.Numerics.Tensors" Version="9.0.8" />
     <PackageVersion Include="PuppeteerSharp" Version="20.0.5" />
     <PackageVersion Include="Microsoft.Playwright" Version="1.51.0" />
     <PackageVersion Include="Microsoft.Playwright.NUnit" Version="1.51.0" />
@@ -34,29 +38,29 @@
     <PackageVersion Include="SciSharp.TensorFlow.Redist" Version="2.16.0" />
     <PackageVersion Include="System.Reflection.Emit" Version="4.7.0" />
     <PackageVersion Include="System.Runtime.Loader" Version="4.3.0" />
-    <PackageVersion Include="Microsoft.Extensions.AI" Version="9.7.1" />
+    <PackageVersion Include="Microsoft.Extensions.AI" Version="9.8.0" />
   <PackageVersion Include="Microsoft.Extensions.DependencyInjection" Version="9.0.8" />
   <PackageVersion Include="Microsoft.Extensions.DependencyInjection.Abstractions" Version="9.0.8" />
   <PackageVersion Include="Microsoft.Extensions.Diagnostics.HealthChecks" Version="9.0.8" />
   <PackageVersion Include="Microsoft.Extensions.Hosting" Version="9.0.8" />
   <PackageVersion Include="Microsoft.Extensions.Http" Version="9.0.8" />
     <PackageVersion Include="Microsoft.Extensions.Http.Resilience" Version="9.7.0" />
-    <PackageVersion Include="Microsoft.EntityFrameworkCore" Version="9.0.7" />
-    <PackageVersion Include="Microsoft.EntityFrameworkCore.Relational" Version="9.0.7" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore" Version="9.0.8" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.Relational" Version="9.0.8" />
   <PackageVersion Include="Microsoft.Extensions.Logging" Version="9.0.8" />
   <PackageVersion Include="Microsoft.Extensions.Logging.Console" Version="9.0.8" />
     <PackageVersion Include="Microsoft.Extensions.ServiceDiscovery" Version="9.4.0" />
     <PackageVersion Include="Mono.Cecil" Version="0.11.6" />
-    <PackageVersion Include="Microsoft.SemanticKernel" Version="1.61.0" />
-    <PackageVersion Include="Microsoft.SemanticKernel.Agents.Core" Version="1.61.0" />
-    <PackageVersion Include="Microsoft.SemanticKernel.Agents.Orchestration" Version="1.61.0-preview" />
-    <PackageVersion Include="Microsoft.SemanticKernel.Agents.Runtime.InProcess" Version="1.61.0-preview" />
-    <PackageVersion Include="Microsoft.SemanticKernel.Connectors.Ollama" Version="1.61.0-alpha" />
-    <PackageVersion Include="Microsoft.SemanticKernel.Connectors.OpenAI" Version="1.61.0" />
-    <PackageVersion Include="Microsoft.SemanticKernel.Connectors.InMemory" Version="1.61.0-preview" />
-    <PackageVersion Include="Microsoft.SemanticKernel.Plugins.OpenApi" Version="1.61.0" />
-    <PackageVersion Include="Microsoft.SemanticKernel.Process.Core" Version="1.61.0-alpha" />
-    <PackageVersion Include="Microsoft.SemanticKernel.Process.LocalRuntime" Version="1.61.0-alpha" />
+    <PackageVersion Include="Microsoft.SemanticKernel" Version="1.64.0" />
+    <PackageVersion Include="Microsoft.SemanticKernel.Agents.Core" Version="1.64.0" />
+    <PackageVersion Include="Microsoft.SemanticKernel.Agents.Orchestration" Version="1.64.0-preview" />
+    <PackageVersion Include="Microsoft.SemanticKernel.Agents.Runtime.InProcess" Version="1.64.0-preview" />
+    <PackageVersion Include="Microsoft.SemanticKernel.Connectors.Ollama" Version="1.64.0-alpha" />
+    <PackageVersion Include="Microsoft.SemanticKernel.Connectors.OpenAI" Version="1.64.0" />
+    <PackageVersion Include="Microsoft.SemanticKernel.Connectors.InMemory" Version="1.64.0-preview" />
+    <PackageVersion Include="Microsoft.SemanticKernel.Plugins.OpenApi" Version="1.64.0" />
+    <PackageVersion Include="Microsoft.SemanticKernel.Process.Core" Version="1.64.0-alpha" />
+    <PackageVersion Include="Microsoft.SemanticKernel.Process.LocalRuntime" Version="1.64.0-alpha" />
   <PackageVersion Include="Microsoft.Extensions.Configuration" Version="9.0.8" />
   <PackageVersion Include="Microsoft.Extensions.Configuration.Binder" Version="9.0.8" />
   <PackageVersion Include="Microsoft.Extensions.Configuration.Abstractions" Version="9.0.8" />
@@ -72,10 +76,10 @@
     <PackageVersion Include="Swashbuckle.AspNetCore" Version="9.0.3" />
     <PackageVersion Include="Swashbuckle.AspNetCore.Annotations" Version="9.0.1" />
     <PackageVersion Include="Microsoft.EntityFrameworkCore.InMemory" Version="9.0.7" />
-    <PackageVersion Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.7" />
-    <PackageVersion Include="Microsoft.EntityFrameworkCore.Sqlite" Version="9.0.7" />
-    <PackageVersion Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="9.0.3" />
-    <PackageVersion Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.7" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.SqlServer" Version="9.0.8" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.Sqlite" Version="9.0.8" />
+    <PackageVersion Include="Npgsql.EntityFrameworkCore.PostgreSQL" Version="9.0.4" />
+    <PackageVersion Include="Microsoft.EntityFrameworkCore.Design" Version="9.0.8" />
     <PackageVersion Include="Microsoft.NET.Test.Sdk" Version="17.12.0" />
   <PackageVersion Include="NUnit" Version="4.2.2" />
   <PackageVersion Include="NUnit3TestAdapter" Version="4.6.0" />
