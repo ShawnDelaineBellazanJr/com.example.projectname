@@ -1,0 +1,15 @@
+{
+  "server": {
+    "name": "Everything",
+    "command": "npx",
+    "args": ["-y", "@modelcontextprotocol/server-everything"]
+  },
+  "listTools": true,
+  "call": {
+    "tool": "echo",
+    "params": {
+      "message": "Hello from intent.echo.json"
+    }
+  },
+  "out": "out/intent.echo.result.json"
+}

@@ -1,0 +1,13 @@
+{
+  "server": {
+    "name": "Everything (explicit)",
+    "command": "npx",
+    "args": ["-y", "@modelcontextprotocol/server-everything"]
+  },
+  "listTools": true,
+  "call": {
+    "tool": "echo",
+    "params": { "message": "CLI override demo" }
+  },
+  "out": "out/intent.override-server.result.json"
+}

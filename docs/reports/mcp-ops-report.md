@@ -1,3 +1,42 @@
+---
+title: MCP Ops Report
+description: Operational view of MCP intents, servers, and orchestration health.
+---
+
+# MCP Ops Report
+
+> Comment (Plan): Summarize recent MCP runs, servers used, quality metrics, and evolution suggestions.
+
+## Overview
+- Scope: C# MCP client runs, Node orchestration, server configurations, and outcomes.
+- Data source: structured outputs in `out/*.result.json` and optional SQLite `mydatabase.db`.
+
+## Recent runs (example fields)
+- runId, intent, mode, startedAt/endedAt, server.name, steps count, selected scores, durationMs
+
+## Health metrics
+- Success rate
+- Average score and variance
+- Average duration
+- Branches tried vs. planned
+- Drift incidents (context/provenance)
+
+## Findings
+- Strengths: …
+- Risks: …
+- Trends: …
+
+## Recommendations (PMCR‑O)
+- Plan: prioritize intents with low scores for rubric tuning
+- Make: add locked context to high‑drift flows
+- Check: enforce step/branch caps
+- Reflect: capture rationales and deltas
+- Orchestrate: schedule follow‑up runs
+
+## Evolution triggers
+- If success rate < target: open rubric/constraints ticket
+- If drift detected: enable context snapshot step 0
+- If duration regresses: reduce branches or tighten prompts
 # MCP Ops Report — 2025-08-29
 
 This report captures a lightweight smoke test of configured MCP assistants/servers in this workspace, aligned with ThoughtTransfer’s PMCR-O methodology.

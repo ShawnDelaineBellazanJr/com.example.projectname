@@ -1,0 +1,21 @@
+{
+  "Server": {
+    "Name": "Everything",
+    "Command": "npx",
+    "Arguments": [
+      "-y",
+      "@modelcontextprotocol/server-everything"
+    ]
+  },
+  "Calls": [
+    {
+      "Tool": "echo",
+      "Params": {
+        "message": "Hello from intent.echo.json"
+      },
+      "Text": "Echo: Hello from intent.echo.json",
+      "TimestampUtc": "2025-08-29T23:10:53.8151079Z"
+    }
+  ],
+  "TimestampUtc": "2025-08-29T23:10:53.8160502Z"
+}

@@ -11,4 +11,15 @@
   <ItemGroup>
     <PackageReference Include="ModelContextProtocol" Version="0.3.0-preview.4" />
   </ItemGroup>
+
+  <!-- Optional: run an intent config at build when RunIntentOnBuild=true -->
+  <PropertyGroup>
+    <RunIntentOnBuild>false</RunIntentOnBuild>
+    <IntentConfig>$(MSBuildProjectDirectory)\..\..\intents\intent.echo.json</IntentConfig>
+  </PropertyGroup>
+
+  <Target Name="RunIntent" AfterTargets="Build" Condition=" '$(RunIntentOnBuild)' == 'true' ">
+    <Message Text="Running MCP intent: $(IntentConfig)" Importance="High" />
+    <Exec Command="dotnet run --project &quot;$(MSBuildProjectFullPath)&quot; -- --config &quot;$(IntentConfig)&quot;" />
+  </Target>
 </Project>

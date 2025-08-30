@@ -1,0 +1,21 @@
+{
+  "Server": {
+    "Name": "Everything (explicit)",
+    "Command": "npx",
+    "Arguments": [
+      "-y",
+      "@modelcontextprotocol/server-everything"
+    ]
+  },
+  "Calls": [
+    {
+      "Tool": "echo",
+      "Params": {
+        "message": "CLI override demo"
+      },
+      "Text": "Echo: CLI override demo",
+      "TimestampUtc": "2025-08-29T23:32:02.4050414Z"
+    }
+  ],
+  "TimestampUtc": "2025-08-29T23:32:02.4055164Z"
+}

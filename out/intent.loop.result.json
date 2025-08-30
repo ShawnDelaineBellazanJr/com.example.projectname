@@ -1,0 +1,37 @@
+{
+  "Server": {
+    "Name": "Everything",
+    "Command": "npx",
+    "Arguments": [
+      "-y",
+      "@modelcontextprotocol/server-everything"
+    ]
+  },
+  "Calls": [
+    {
+      "Tool": "echo",
+      "Params": {
+        "message": "lock: first thought"
+      },
+      "Text": "Echo: lock: first thought",
+      "TimestampUtc": "2025-08-29T23:15:38.2060583Z"
+    },
+    {
+      "Tool": "echo",
+      "Params": {
+        "message": "reflect: {{last.Text}}"
+      },
+      "Text": "Echo: reflect: Echo: lock: first thought",
+      "TimestampUtc": "2025-08-29T23:15:38.2094287Z"
+    },
+    {
+      "Tool": "echo",
+      "Params": {
+        "message": "optimize: {{Calls[0].Text}} -\u003E {{Calls[1].Text}}"
+      },
+      "Text": "Echo: optimize: Echo: lock: first thought -\u003E Echo: reflect: Echo: lock: first thought",
+      "TimestampUtc": "2025-08-29T23:15:38.2176753Z"
+    }
+  ],
+  "TimestampUtc": "2025-08-29T23:15:38.2179400Z"
+}

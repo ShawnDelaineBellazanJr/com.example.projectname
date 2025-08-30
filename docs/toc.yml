@@ -4,7 +4,7 @@
   - name: Quick Start
     href: guides/usage.md
   - name: Philosophy
-    href: philosophy/overview.md
+    href: philosophy/index.md
 
 - name: Core Framework
   items:
@@ -14,15 +14,35 @@
     href: philosophy/strange-loops.md
   - name: Self-Reference
     href: philosophy/self-reference.md
+  - name: O‑dash‑O (O‑O)
+    href: philosophy/o-dash-o.md
   - name: Consciousness Evolution
     href: philosophy/consciousness.md
+  - name: Glossary
+    href: philosophy/glossary.md
+  - name: Philosophers & Roles
+    href: philosophy/philosophers.md
 
 - name: Implementation
   items:
   - name: Getting Started
     href: guides/getting-started.md
+  - name: MCP Quickstart
+    href: guides/mcp-quickstart.md
   - name: Advanced Usage
     href: guides/advanced-usage.md
+  - name: MCP Orchestration (Node ↔ C#)
+    href: guides/mcp-orchestration.md
+  - name: Prompt Engineering
+    href: guides/prompt-engineering.md
+  - name: Locked Context
+    href: guides/locked-context.md
+  - name: Semantic Kernel Integration
+    href: guides/semantic-kernel.md
+  - name: Agent Framework Patterns
+    href: guides/agent-framework.md
+  - name: Memory & Persistence (SQLite)
+    href: guides/memory-storage.md
   - name: Best Practices
     href: guides/best-practices.md
   - name: Troubleshooting
@@ -60,6 +80,8 @@
     href: meta/patterns.md
   - name: Evolution Tracking
     href: meta/tracking.md
+  - name: Docs Map & Audit
+    href: meta/docs-map.md
 
 - name: Community & Support
   items:

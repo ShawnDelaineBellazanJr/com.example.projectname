@@ -1,0 +1,23 @@
+{
+  "server": {
+    "name": "Everything",
+    "command": "npx",
+    "args": ["-y", "@modelcontextprotocol/server-everything"]
+  },
+  "listTools": false,
+  "calls": [
+    {
+      "tool": "echo",
+      "params": { "message": "lock: first thought" }
+    },
+    {
+      "tool": "echo",
+      "params": { "message": "reflect: {{last.Text}}" }
+    },
+    {
+      "tool": "echo",
+      "params": { "message": "optimize: {{Calls[0].Text}} -> {{Calls[1].Text}}" }
+    }
+  ],
+  "out": "out/intent.loop.result.json"
+}
